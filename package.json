@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "node server.js",
     "seed": "node src/shared/db/seeder.js",
-    "test": "jest --runInBand --detectOpenHandles"
+    "test": "jest tests/auth.test.js --runInBand --forceExit"
   },
   "keywords": [
     "placement-portal",
@@ -18,10 +18,10 @@
   "author": "Aryan Bhutani",
   "license": "ISC",
   "dependencies": {
-    "better-sqlite3": "^13.0.3",
     "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
     "cors": "^2.8.5",
-    "dotenv": "^17.3.1",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1"

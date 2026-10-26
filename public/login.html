@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaceCo – Career & Placement Portal | Login</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-container">
+      
+      <!-- Left Hero & Project Context Panel -->
+      <div class="auth-hero-panel">
+        <div>
+          <div class="brand-header">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/>
+              </svg>
+            </div>
+            <span class="brand-title">PlaceCo</span>
+          </div>
+
+          <div class="hero-content">
+            <h2>Campus Placements, <span>Streamlined.</span></h2>
+            <p class="hero-description">
+              A centralized placement & career management portal connecting students, corporate recruiters, and placement coordinators.
+            </p>
+          </div>
+
+          <!-- Academic Project Team Division Meta -->
+          <div class="project-meta-box">
+            <h4>
+              <span>📋</span> Software Engineering Project
+            </h4>
+            <ul class="team-modules-list">
+              <li>
+                <span><strong>Module 1:</strong> Auth & Role-Based Login</span>
+                <span class="module-badge-active">Implemented</span>
+              </li>
+              <li>
+                <span><strong>Module 2:</strong> Student Profile & Docs</span>
+                <span class="module-badge-planned">Teammate 2</span>
+              </li>
+              <li>
+                <span><strong>Module 3:</strong> Recruiter Opportunities</span>
+                <span class="module-badge-planned">Teammate 3</span>
+              </li>
+              <li>
+                <span><strong>Module 4:</strong> Student Application & Admin</span>
+                <span class="module-badge-planned">Teammate 4</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quick Demo Credentials for Fast Evaluation -->
+        <div class="demo-accounts-section">
+          <div class="demo-title">⚡ 1-Click Evaluation Credentials</div>
+          <div class="demo-pills-grid">
+            <button type="button" class="demo-pill-btn" data-email="student@placeco.edu" data-role="student">
+              <div class="demo-pill-left">
+                <span class="demo-pill-role student">Student</span>
+                <span>student@placeco.edu</span>
+              </div>
+              <span style="color: var(--text-dim); font-size: 0.75rem;">Password123 →</span>
+            </button>
+
+            <button type="button" class="demo-pill-btn" data-email="recruiter@placeco.edu" data-role="recruiter">
+              <div class="demo-pill-left">
+                <span class="demo-pill-role recruiter">Recruiter</span>
+                <span>recruiter@placeco.edu</span>
+              </div>
+              <span style="color: var(--text-dim); font-size: 0.75rem;">Password123 →</span>
+            </button>
+
+            <button type="button" class="demo-pill-btn" data-email="admin@placeco.edu" data-role="admin">
+              <div class="demo-pill-left">
+                <span class="demo-pill-role admin">Admin</span>
+                <span>admin@placeco.edu</span>
+              </div>
+              <span style="color: var(--text-dim); font-size: 0.75rem;">Password123 →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Interactive Form Panel -->
+      <div class="auth-form-panel">
+        <div class="auth-header-wrap">
+          <h3 id="auth-title">Sign In to PlaceCo</h3>
+          <p id="auth-subtitle">Enter your institutional credentials to access your placement dashboard.</p>
+        </div>
+
+        <!-- Tab Switcher -->
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab-btn active" id="tab-login">Sign In</button>
+          <button type="button" class="auth-tab-btn" id="tab-register">Create Account</button>
+        </div>
+
+        <!-- Live Alert Banner -->
+        <div id="auth-alert" class="alert alert-danger" style="display: none;"></div>
+
+        <!-- 1. Login Form -->
+        <div id="login-form-wrap">
+          <form id="login-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="login-email">
+                <span>Email Address</span>
+              </label>
+              <div class="input-wrapper">
+                <input
+                  type="email"
+                  id="login-email"
+                  class="form-control"
+                  placeholder="name@placeco.edu or company@domain.com"
+                  autocomplete="username"
+                  required
+                >
+                <span class="input-icon">✉</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-password">
+                <span>Password</span>
+              </label>
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  id="login-password"
+                  class="form-control"
+                  placeholder="Enter your account password"
+                  autocomplete="current-password"
+                  required
+                >
+                <span class="input-icon">🔒</span>
+                <button type="button" class="password-toggle-btn" data-target="login-password" title="Toggle visibility">👁</button>
+              </div>
+            </div>
+
+            <button type="submit" id="login-submit-btn" class="btn btn-primary btn-block" style="margin-top: 1.5rem;">
+              Sign In to Dashboard →
+            </button>
+          </form>
+        </div>
+
+        <!-- 2. Registration Form -->
+        <div id="register-form-wrap" style="display: none;">
+          <form id="register-form" novalidate>
+            
+            <div class="role-selector-wrap">
+              <span class="role-selector-label">I am registering as:</span>
+              <div class="role-pills">
+                <div class="role-pill-option">
+                  <input type="radio" id="role-student" name="register-role" value="student" checked>
+                  <label for="role-student" class="role-pill-label">
+                    <span class="role-pill-icon">🎓</span>
+                    <span>Student</span>
+                  </label>
+                </div>
+
+                <div class="role-pill-option">
+                  <input type="radio" id="role-recruiter" name="register-role" value="recruiter">
+                  <label for="role-recruiter" class="role-pill-label">
+                    <span class="role-pill-icon">💼</span>
+                    <span>Recruiter</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="register-name">Full Name</label>
+              <div class="input-wrapper">
+                <input type="text" id="register-name" class="form-control" placeholder="e.g. Aryan Bhutani" required>
+                <span class="input-icon">👤</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="register-email">Email Address</label>
+              <div class="input-wrapper">
+                <input type="email" id="register-email" class="form-control" placeholder="name@placeco.edu" required>
+                <span class="input-icon">✉</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="register-password">Password (min 6 characters)</label>
+              <div class="input-wrapper">
+                <input type="password" id="register-password" class="form-control" placeholder="Create a strong password" required>
+                <span class="input-icon">🔒</span>
+                <button type="button" class="password-toggle-btn" data-target="register-password">👁</button>
+              </div>
+            </div>
+
+            <button type="submit" id="register-submit-btn" class="btn btn-primary btn-block" style="margin-top: 1.25rem;">
+              Create Account & Sign In →
+            </button>
+          </form>
+        </div>
+
+        <!-- Security / RBAC notice -->
+        <div class="form-footer-helpers">
+          <span style="color: var(--text-dim); font-size: 0.8rem;">
+            🔒 Protected by PlaceCo RBAC & JWT Encryption
+          </span>
+          <span style="color: var(--text-dim); font-size: 0.8rem;">
+            SE Academic Prototype v1.0
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

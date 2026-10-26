@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaceCo – Redirecting...</title>
+  <script src="/js/api.js"></script>
+</head>
+<body style="background: #0B0F19; color: #FFF; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+  <p>Loading PlaceCo Portal...</p>
+  <script>
+    if (PlaceCoAuth.isAuthenticated()) {
+      const user = PlaceCoAuth.getUser();
+      if (user && user.role === 'student') window.location.href = '/student/dashboard.html';
+      else if (user && user.role === 'recruiter') window.location.href = '/recruiter/dashboard.html';
+      else if (user && user.role === 'admin') window.location.href = '/admin/dashboard.html';
+      else window.location.href = '/login.html';
+    } else {
+      window.location.href = '/login.html';
+    }
+  </script>
+</body>
+</html>

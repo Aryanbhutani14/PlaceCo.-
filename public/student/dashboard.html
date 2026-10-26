@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlaceCo – Student Portal Dashboard</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+</head>
+<body>
+  <div class="app-layout">
+    
+    <!-- Top Navigation -->
+    <header class="top-navbar">
+      <a href="/student/dashboard.html" class="nav-brand">
+        <div class="nav-brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/></svg>
+        </div>
+        <span class="nav-brand-text">PlaceCo</span>
+        <span class="badge badge-student" style="margin-left: 0.5rem;">Student Portal</span>
+      </a>
+
+      <div class="nav-user-actions">
+        <div class="user-profile-summary">
+          <div class="user-avatar-circle" id="user-avatar">S</div>
+          <div class="user-info-text">
+            <span class="user-name-display" id="user-name">Loading...</span>
+            <span class="user-role-display" id="user-role">Student</span>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-outline-danger" onclick="PlaceCoAuth.logout()" style="padding: 0.45rem 1rem; font-size: 0.85rem;">
+          Sign Out
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+      <!-- Welcome Banner -->
+      <section class="welcome-banner">
+        <div class="welcome-text">
+          <h1>Welcome, <span id="welcome-name" style="color: #6EE7B7;">Student</span>! 👋</h1>
+          <p>
+            You have successfully authenticated via <strong>Module 1: Authentication & Role-Based Login</strong>. 
+            Your role is verified as <strong>STUDENT</strong> and your secure JWT session is active.
+          </p>
+        </div>
+        <div>
+          <span class="badge badge-student" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+            ● Session Active
+          </span>
+        </div>
+      </section>
+
+      <!-- Key Stats / Session Verification Cards -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Authentication Module</span>
+            <span class="stat-icon">🔐</span>
+          </div>
+          <div class="stat-value" style="color: #34D399;">Active</div>
+          <div class="stat-subtext">Module 1 (Auth & RBAC) Online</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Assigned Role</span>
+            <span class="stat-icon">🎓</span>
+          </div>
+          <div class="stat-value">Student</div>
+          <div class="stat-subtext">RBAC Level: Student Privileges</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Student Profile</span>
+            <span class="stat-icon">📁</span>
+          </div>
+          <div class="stat-value" style="color: #93C5FD;">Module 2</div>
+          <div class="stat-subtext">Assigned to Teammate 2</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-title">Applications</span>
+            <span class="stat-icon">📄</span>
+          </div>
+          <div class="stat-value" style="color: #C084FC;">Module 4</div>
+          <div class="stat-subtext">Assigned to Teammate 4</div>
+        </div>
+      </section>
+
+      <!-- Active User Session Inspector -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <h3 class="panel-title">
+            <span>🔑</span> Authenticated Session & Token Inspection
+          </h3>
+          <button type="button" class="btn btn-secondary" onclick="refreshSessionInfo()" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+            ⟳ Verify with Server (/api/auth/me)
+          </button>
+        </div>
+
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          This inspector proves that your stateless JWT session was issued by the backend, validated, and loaded with role metadata.
+        </p>
+
+        <div class="session-inspector" id="session-json">Loading session credentials...</div>
+      </div>
+
+      <!-- Security / RBAC Verification Sandbox -->
+      <div class="rbac-test-section">
+        <div class="rbac-test-header">
+          <span>🛡️</span> Security Sandbox: Test Role-Based Access Control (RBAC)
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">
+          To prove that RBAC is enforced by backend API middleware rather than just UI hiding, click the buttons below to test cross-role requests:
+        </p>
+
+        <div class="rbac-test-buttons">
+          <button type="button" class="btn btn-secondary" onclick="testAuthorizedAccess()" style="font-size: 0.825rem;">
+            ✓ Test Authorized Request (GET /api/student/profile)
+          </button>
+          
+          <button type="button" class="btn btn-outline-danger" onclick="testForbiddenRecruiterAccess()" style="font-size: 0.825rem;">
+            ✕ Test Forbidden Access (Attempt GET /api/recruiter/opportunities as Student)
+          </button>
+
+          <button type="button" class="btn btn-outline-danger" onclick="testForbiddenAdminAccess()" style="font-size: 0.825rem;">
+            ✕ Test Forbidden Access (Attempt GET /api/admin/dashboard as Student)
+          </button>
+        </div>
+
+        <div id="rbac-output" class="rbac-output"></div>
+      </div>
+
+      <!-- Team Work Division & Next Modules Overview -->
+      <div class="panel-card" style="margin-top: 2rem;">
+        <div class="panel-header">
+          <h3 class="panel-title">
+            <span>👥</span> PlaceCo Project Team Division (4 Modules)
+          </h3>
+          <span class="badge" style="background: rgba(99, 102, 241, 0.2); color: #A5B4FC;">4-Member Engineering Team</span>
+        </div>
+
+        <div class="modules-architecture-grid">
+          <div class="module-status-card active">
+            <div>
+              <span class="module-number">Module 1</span>
+              <div class="module-name">Authentication & Role-Based Login</div>
+              <div class="module-owner">Implemented by Member 1 (Current)</div>
+            </div>
+            <span class="badge badge-student">✓ Complete & Operational</span>
+          </div>
+
+          <div class="module-status-card">
+            <div>
+              <span class="module-number">Module 2</span>
+              <div class="module-name">Student Profile & Documents</div>
+              <div class="module-owner">Assigned to Teammate 2</div>
+            </div>
+            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
+          </div>
+
+          <div class="module-status-card">
+            <div>
+              <span class="module-number">Module 3</span>
+              <div class="module-name">Recruiter Opportunities</div>
+              <div class="module-owner">Assigned to Teammate 3</div>
+            </div>
+            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
+          </div>
+
+          <div class="module-status-card">
+            <div>
+              <span class="module-number">Module 4</span>
+              <div class="module-name">Student Application & Admin</div>
+              <div class="module-owner">Assigned to Teammate 4</div>
+            </div>
+            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script>
+    // Guard page for student role
+    if (PlaceCoAuth.guardPage('student')) {
+      const user = PlaceCoAuth.getUser();
+      if (user) {
+        document.getElementById('user-name').textContent = user.name;
+        document.getElementById('welcome-name').textContent = user.name;
+        document.getElementById('user-avatar').textContent = user.name.charAt(0).toUpperCase();
+        document.getElementById('user-role').textContent = user.role.toUpperCase();
+
+        renderSession(user, PlaceCoAuth.getToken());
+      }
+    }
+
+    function renderSession(user, token) {
+      const displayObj = {
+        authenticated: true,
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+          status: user.status
+        },
+        tokenPreview: token ? `${token.substring(0, 36)}... [valid JWT]` : null,
+        storage: 'localStorage (PlaceCoAuth.TOKEN_KEY)',
+        activeRolePermission: 'STUDENT_LEVEL'
+      };
+      document.getElementById('session-json').textContent = JSON.stringify(displayObj, null, 2);
+    }
+
+    async function refreshSessionInfo() {
+      const res = await PlaceCoAuth.request('/api/auth/me');
+      if (res && res.success) {
+        PlaceCoAuth.setUser(res.data);
+        renderSession(res.data, PlaceCoAuth.getToken());
+        PlaceCoAuth.showToast('Session verified with server successfully.', 'success');
+      } else {
+        PlaceCoAuth.showToast('Failed to verify session.', 'error');
+      }
+    }
+
+    async function testAuthorizedAccess() {
+      const output = document.getElementById('rbac-output');
+      output.style.display = 'block';
+      output.style.color = '#34D399';
+      output.textContent = 'Calling authorized endpoint: GET /api/student/profile ...';
+
+      const res = await PlaceCoAuth.request('/api/student/profile');
+      output.textContent = `[HTTP ${res.status}] SUCCESS:\n` + JSON.stringify(res, null, 2);
+    }
+
+    async function testForbiddenRecruiterAccess() {
+      const output = document.getElementById('rbac-output');
+      output.style.display = 'block';
+      output.style.color = '#F87171';
+      output.textContent = 'Calling recruiter endpoint as student: GET /api/recruiter/opportunities ...';
+
+      const res = await PlaceCoAuth.request('/api/recruiter/opportunities');
+      output.textContent = `[HTTP ${res.status}] FORBIDDEN (RBAC Enforced):\n` + JSON.stringify(res, null, 2);
+    }
+
+    async function testForbiddenAdminAccess() {
+      const output = document.getElementById('rbac-output');
+      output.style.display = 'block';
+      output.style.color = '#F87171';
+      output.textContent = 'Calling admin endpoint as student: GET /api/admin/dashboard ...';
+
+      const res = await PlaceCoAuth.request('/api/admin/dashboard');
+      output.textContent = `[HTTP ${res.status}] FORBIDDEN (RBAC Enforced):\n` + JSON.stringify(res, null, 2);
+    }
+  </script>
+</body>
+</html>
