@@ -44,8 +44,7 @@
         <div class="welcome-text">
           <h1>Welcome, <span id="welcome-name" style="color: #C084FC;">Administrator</span>! 🛡️</h1>
           <p>
-            You have successfully authenticated via <strong>Module 1: Authentication & Role-Based Login</strong>. 
-            Your role is verified as <strong>ADMIN</strong> with superuser authorization across user accounts and placement records.
+            Central administrative oversight console for the PlaceCo placement platform. You have superuser privileges across institutional users, opportunities, and placement statistics.
           </p>
         </div>
         <div>
@@ -55,20 +54,20 @@
         </div>
       </section>
 
-      <!-- Key Stats / Session Verification Cards -->
+      <!-- Key Stats Grid -->
       <section class="stats-grid">
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">Authentication Module</span>
-            <span class="stat-icon">🔐</span>
+            <span class="stat-title">System Status</span>
+            <span class="stat-icon">⚡</span>
           </div>
-          <div class="stat-value" style="color: #34D399;">Active</div>
-          <div class="stat-subtext">Module 1 (Auth & RBAC) Online</div>
+          <div class="stat-value" style="color: #34D399;">Operational</div>
+          <div class="stat-subtext">REST API & Auth Services Active</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">System Users</span>
+            <span class="stat-title">Registered Users</span>
             <span class="stat-icon">👥</span>
           </div>
           <div class="stat-value" id="stat-users">...</div>
@@ -86,11 +85,11 @@
 
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">System Status</span>
-            <span class="stat-icon">⚡</span>
+            <span class="stat-title">Security Protocol</span>
+            <span class="stat-icon">🔒</span>
           </div>
-          <div class="stat-value" style="color: #34D399;">Healthy</div>
-          <div class="stat-subtext">REST API & Auth Online</div>
+          <div class="stat-value" style="color: #34D399;">Enforced</div>
+          <div class="stat-subtext">RBAC Level: SUPERUSER</div>
         </div>
       </section>
 
@@ -98,15 +97,15 @@
       <div class="panel-card">
         <div class="panel-header">
           <h3 class="panel-title">
-            <span>🔑</span> Authenticated Session & Admin Token Inspection
+            <span>🔑</span> Authenticated Session & Administrator Credentials
           </h3>
           <button type="button" class="btn btn-secondary" onclick="refreshSessionInfo()" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
-            ⟳ Verify with Server (/api/auth/me)
+            ⟳ Refresh Session (/api/auth/me)
           </button>
         </div>
 
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
-          This inspector shows the decoded JWT payload authorizing Admin actions across the PlaceCo platform.
+          Verified admin credentials and cryptographic JWT token authorizing superuser actions across the platform.
         </p>
 
         <div class="session-inspector" id="session-json">Loading session credentials...</div>
@@ -116,58 +115,10 @@
       <div class="panel-card">
         <div class="panel-header">
           <h3 class="panel-title">
-            <span>📊</span> Live Backend Metrics (GET /api/admin/dashboard)
+            <span>📊</span> System Telemetry & Placement Metrics (GET /api/admin/dashboard)
           </h3>
         </div>
         <div class="session-inspector" id="metrics-json">Loading system telemetry...</div>
-      </div>
-
-      <!-- Team Work Division & Next Modules Overview -->
-      <div class="panel-card" style="margin-top: 2rem;">
-        <div class="panel-header">
-          <h3 class="panel-title">
-            <span>👥</span> PlaceCo Project Team Division (4 Modules)
-          </h3>
-          <span class="badge badge-admin">Architecture Status</span>
-        </div>
-
-        <div class="modules-architecture-grid">
-          <div class="module-status-card active">
-            <div>
-              <span class="module-number">Module 1</span>
-              <div class="module-name">Authentication & Role-Based Login</div>
-              <div class="module-owner">Implemented by Member 1 (Current)</div>
-            </div>
-            <span class="badge badge-student">✓ Complete & Operational</span>
-          </div>
-
-          <div class="module-status-card">
-            <div>
-              <span class="module-number">Module 2</span>
-              <div class="module-name">Student Profile & Documents</div>
-              <div class="module-owner">Assigned to Teammate 2</div>
-            </div>
-            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
-          </div>
-
-          <div class="module-status-card">
-            <div>
-              <span class="module-number">Module 3</span>
-              <div class="module-name">Recruiter Opportunities</div>
-              <div class="module-owner">Assigned to Teammate 3</div>
-            </div>
-            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
-          </div>
-
-          <div class="module-status-card">
-            <div>
-              <span class="module-number">Module 4</span>
-              <div class="module-name">Student Application & Admin</div>
-              <div class="module-owner">Assigned to Teammate 4</div>
-            </div>
-            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
-          </div>
-        </div>
       </div>
 
     </main>

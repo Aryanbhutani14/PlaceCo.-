@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       loginFormWrap.style.display = 'block';
       registerFormWrap.style.display = 'none';
       authTitle.textContent = 'Sign In to PlaceCo';
-      authSubtitle.textContent = 'Enter your university or company credentials to access your portal.';
+      authSubtitle.textContent = 'Enter your institutional credentials to access your placement dashboard.';
       clearAlert();
     });
 
@@ -67,9 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Password Visibility Toggle
   setupPasswordToggles();
-
-  // Quick Demo Buttons
-  setupDemoAccountButtons();
 
   // Login Form Submission
   const loginForm = document.getElementById('login-form');
@@ -110,32 +107,6 @@ function setupPasswordToggles() {
         const isPassword = input.getAttribute('type') === 'password';
         input.setAttribute('type', isPassword ? 'text' : 'password');
         btn.textContent = isPassword ? '👁' : '🔒';
-      }
-    });
-  });
-}
-
-function setupDemoAccountButtons() {
-  const demoButtons = document.querySelectorAll('.demo-pill-btn');
-  demoButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const email = btn.getAttribute('data-email');
-      const role = btn.getAttribute('data-role');
-
-      // Switch to login tab
-      const tabLogin = document.getElementById('tab-login');
-      if (tabLogin) tabLogin.click();
-
-      // Populate form
-      const emailInput = document.getElementById('login-email');
-      const passwordInput = document.getElementById('login-password');
-
-      if (emailInput && passwordInput) {
-        emailInput.value = email;
-        passwordInput.value = 'Password123';
-        emailInput.focus();
-
-        PlaceCoAuth.showToast(`Populated credentials for ${role.toUpperCase()} demo. Click 'Sign In' to continue.`, 'info');
       }
     });
   });
@@ -185,7 +156,7 @@ async function handleLoginSubmit(e) {
     PlaceCoAuth.setToken(res.data.token);
     PlaceCoAuth.setUser(res.data.user);
 
-    showAlert(`Welcome back, ${res.data.user.name}! Redirecting to ${res.data.user.role.toUpperCase()} dashboard...`, 'success');
+    showAlert(`Welcome back, ${res.data.user.name}! Redirecting to dashboard...`, 'success');
 
     setTimeout(() => {
       window.location.href = res.data.redirectUrl || `/${res.data.user.role}/dashboard.html`;
@@ -249,7 +220,7 @@ async function handleRegisterSubmit(e) {
     PlaceCoAuth.setToken(res.data.token);
     PlaceCoAuth.setUser(res.data.user);
 
-    showAlert(`Account created successfully! Redirecting to ${res.data.user.role.toUpperCase()} dashboard...`, 'success');
+    showAlert(`Account created successfully! Redirecting to dashboard...`, 'success');
 
     setTimeout(() => {
       window.location.href = res.data.redirectUrl || `/${res.data.user.role}/dashboard.html`;

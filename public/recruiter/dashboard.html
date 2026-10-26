@@ -44,8 +44,7 @@
         <div class="welcome-text">
           <h1>Welcome, <span id="welcome-name" style="color: #93C5FD;">Recruiter</span>! 💼</h1>
           <p>
-            You have successfully authenticated via <strong>Module 1: Authentication & Role-Based Login</strong>. 
-            Your role is verified as <strong>RECRUITER</strong> with authorization to publish opportunities and manage recruitment drives.
+            Your corporate recruiter portal is active. You can create and publish placement opportunities, review verified student profiles, and track candidate evaluations.
           </p>
         </div>
         <div>
@@ -55,42 +54,42 @@
         </div>
       </section>
 
-      <!-- Key Stats / Session Verification Cards -->
+      <!-- Key Stats Grid -->
       <section class="stats-grid">
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">Authentication Module</span>
-            <span class="stat-icon">🔐</span>
+            <span class="stat-title">Company Verification</span>
+            <span class="stat-icon">🏢</span>
           </div>
-          <div class="stat-value" style="color: #34D399;">Active</div>
-          <div class="stat-subtext">Module 1 (Auth & RBAC) Online</div>
+          <div class="stat-value" style="color: #34D399;">Verified</div>
+          <div class="stat-subtext">Registered Partner Company</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">Assigned Role</span>
+            <span class="stat-title">Portal Role</span>
             <span class="stat-icon">💼</span>
           </div>
           <div class="stat-value">Recruiter</div>
-          <div class="stat-subtext">RBAC Level: Corporate Recruiter</div>
+          <div class="stat-subtext">Corporate Hiring Authority</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">Opportunity Management</span>
+            <span class="stat-title">Placement Drives</span>
             <span class="stat-icon">📢</span>
           </div>
-          <div class="stat-value" style="color: #60A5FA;">Module 3</div>
-          <div class="stat-subtext">Assigned to Teammate 3</div>
+          <div class="stat-value" style="color: #60A5FA;">Active</div>
+          <div class="stat-subtext">Campus Recruitment Drives</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">Placement Applications</span>
-            <span class="stat-icon">📊</span>
+            <span class="stat-title">Security State</span>
+            <span class="stat-icon">🔒</span>
           </div>
-          <div class="stat-value" style="color: #C084FC;">Module 4</div>
-          <div class="stat-subtext">Assigned to Teammate 4</div>
+          <div class="stat-value" style="color: #34D399;">Verified</div>
+          <div class="stat-subtext">256-bit Encrypted Session</div>
         </div>
       </section>
 
@@ -98,15 +97,15 @@
       <div class="panel-card">
         <div class="panel-header">
           <h3 class="panel-title">
-            <span>🔑</span> Authenticated Session & Recruiter Profile Inspection
+            <span>🔑</span> Authenticated Session & Recruiter Account Details
           </h3>
           <button type="button" class="btn btn-secondary" onclick="refreshSessionInfo()" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
-            ⟳ Verify with Server (/api/auth/me)
+            ⟳ Refresh Session (/api/auth/me)
           </button>
         </div>
 
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
-          This inspector proves that your recruiter credentials and company associations are securely authenticated and tokenized.
+          Verified recruiter credentials and corporate authorization payload issued by the PlaceCo platform.
         </p>
 
         <div class="session-inspector" id="session-json">Loading session credentials...</div>
@@ -115,10 +114,10 @@
       <!-- Security / RBAC Verification Sandbox -->
       <div class="rbac-test-section">
         <div class="rbac-test-header">
-          <span>🛡️</span> Security Sandbox: Test Role-Based Access Control (RBAC)
+          <span>🛡️</span> Security Sandbox: Role-Based Access Control (RBAC) Verification
         </div>
         <p style="color: var(--text-muted); font-size: 0.85rem;">
-          To verify that Recruiter role cannot breach student or admin boundary endpoints, run the tests below:
+          Verify that the recruiter session is strictly restricted to corporate operations:
         </p>
 
         <div class="rbac-test-buttons">
@@ -138,54 +137,6 @@
         <div id="rbac-output" class="rbac-output"></div>
       </div>
 
-      <!-- Team Work Division & Next Modules Overview -->
-      <div class="panel-card" style="margin-top: 2rem;">
-        <div class="panel-header">
-          <h3 class="panel-title">
-            <span>👥</span> PlaceCo Project Team Division (4 Modules)
-          </h3>
-          <span class="badge" style="background: rgba(59, 130, 246, 0.2); color: #93C5FD;">Recruiter Integration Ready</span>
-        </div>
-
-        <div class="modules-architecture-grid">
-          <div class="module-status-card active">
-            <div>
-              <span class="module-number">Module 1</span>
-              <div class="module-name">Authentication & Role-Based Login</div>
-              <div class="module-owner">Implemented by Member 1 (Current)</div>
-            </div>
-            <span class="badge badge-recruiter">✓ Complete & Operational</span>
-          </div>
-
-          <div class="module-status-card">
-            <div>
-              <span class="module-number">Module 2</span>
-              <div class="module-name">Student Profile & Documents</div>
-              <div class="module-owner">Assigned to Teammate 2</div>
-            </div>
-            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
-          </div>
-
-          <div class="module-status-card">
-            <div>
-              <span class="module-number">Module 3</span>
-              <div class="module-name">Recruiter Opportunities</div>
-              <div class="module-owner">Assigned to Teammate 3</div>
-            </div>
-            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
-          </div>
-
-          <div class="module-status-card">
-            <div>
-              <span class="module-number">Module 4</span>
-              <div class="module-name">Student Application & Admin</div>
-              <div class="module-owner">Assigned to Teammate 4</div>
-            </div>
-            <span class="badge" style="background: rgba(255,255,255,0.06); color: var(--text-dim);">Ready for Teammate Code</span>
-          </div>
-        </div>
-      </div>
-
     </main>
   </div>
 
@@ -193,7 +144,6 @@
 
   <script src="/js/api.js"></script>
   <script>
-    // Guard page for recruiter role
     if (PlaceCoAuth.guardPage('recruiter')) {
       const user = PlaceCoAuth.getUser();
       if (user) {

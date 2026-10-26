@@ -88,125 +88,84 @@
   margin-bottom: 2rem;
 }
 
-.project-meta-box {
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.project-meta-box h4 {
-  font-size: 0.825rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--secondary);
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.team-modules-list {
-  list-style: none;
-  font-size: 0.85rem;
+.portal-features-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
-.team-modules-list li {
+.portal-feature-item {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--text-muted);
-}
-
-.module-badge-active {
-  color: #34D399;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: rgba(16, 185, 129, 0.15);
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-full);
-}
-
-.module-badge-planned {
-  color: var(--text-dim);
-  font-size: 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-full);
-}
-
-/* Quick Fill Demo Accounts */
-.demo-accounts-section {
-  margin-top: 1.5rem;
-}
-
-.demo-title {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-dim);
-  margin-bottom: 0.75rem;
-}
-
-.demo-pills-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.6rem;
-}
-
-.demo-pill-btn {
-  background: rgba(15, 23, 42, 0.6);
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(15, 23, 42, 0.45);
   border: 1px solid var(--border-subtle);
-  padding: 0.65rem 0.9rem;
   border-radius: var(--radius-md);
-  color: var(--text-main);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.825rem;
+  padding: 1rem 1.15rem;
   transition: all var(--transition-fast);
-  text-align: left;
 }
 
-.demo-pill-btn:hover {
-  background: rgba(79, 70, 229, 0.15);
-  border-color: rgba(99, 102, 241, 0.4);
-  transform: translateY(-1px);
+.portal-feature-item:hover {
+  background: rgba(20, 30, 52, 0.7);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateX(4px);
 }
 
-.demo-pill-left {
+.feature-icon-badge {
+  font-size: 1.35rem;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(99, 102, 241, 0.12);
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  border: 1px solid rgba(99, 102, 241, 0.25);
 }
 
-.demo-pill-role {
-  font-size: 0.7rem;
+.feature-text h4 {
+  font-size: 0.95rem;
   font-weight: 700;
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
 }
 
-.demo-pill-role.student {
-  background: var(--accent-student-bg);
+.feature-text p {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.portal-trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.15rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-md);
+  margin-top: auto;
+}
+
+.trust-badge-icon {
+  font-size: 1.25rem;
+}
+
+.trust-badge-title {
+  display: block;
+  font-size: 0.825rem;
+  font-weight: 700;
   color: #34D399;
+  letter-spacing: 0.03em;
 }
 
-.demo-pill-role.recruiter {
-  background: var(--accent-recruiter-bg);
-  color: #60A5FA;
-}
-
-.demo-pill-role.admin {
-  background: var(--accent-admin-bg);
-  color: #C084FC;
+.trust-badge-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.3;
 }
 
 /* Right Auth Form Panel */
