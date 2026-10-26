@@ -1,0 +1,37 @@
+{
+  "name": "placeco",
+  "version": "1.0.0",
+  "description": "PlaceCo - Web-Based Student Placement and Career Management Portal Prototype",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "seed": "node src/shared/db/seeder.js",
+    "test": "jest --runInBand --detectOpenHandles"
+  },
+  "keywords": [
+    "placement-portal",
+    "career-management",
+    "software-engineering",
+    "placeco"
+  ],
+  "author": "Aryan Bhutani",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 15000
+  }
+}

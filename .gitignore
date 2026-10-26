@@ -1,0 +1,9 @@
+node_modules/
+.env
+data/
+public/uploads/*
+!public/uploads/.gitkeep
+coverage/
+.DS_Store
+Thumbs.db
+*.log
