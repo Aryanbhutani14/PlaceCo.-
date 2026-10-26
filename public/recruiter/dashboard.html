@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlaceCo – Recruiter Portal Dashboard</title>
+  <title>BMU PlaceCo – Corporate Recruiter Portal</title>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/dashboard.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
+  <link rel="icon" href="/images/bmu-logo.png">
 </head>
 <body>
   <div class="app-layout">
@@ -14,16 +14,14 @@
     <!-- Top Navigation -->
     <header class="top-navbar">
       <a href="/recruiter/dashboard.html" class="nav-brand">
-        <div class="nav-brand-icon">
-          <svg viewBox="0 0 24 24"><path d="M10 2H14A2 2 0 0 1 16 4V6H20A2 2 0 0 1 22 8V19A2 2 0 0 1 20 21H4A2 2 0 0 1 2 19V8A2 2 0 0 1 4 6H8V4A2 2 0 0 1 10 2M14 6V4H10V6H14Z"/></svg>
-        </div>
+        <img src="/images/bmu-logo.png" alt="BML Munjal University" class="bmu-nav-logo">
         <span class="nav-brand-text">PlaceCo</span>
-        <span class="badge badge-recruiter" style="margin-left: 0.5rem;">Corporate Recruiter Portal</span>
+        <span class="badge badge-recruiter" style="margin-left: 0.5rem;">Recruiter Hub</span>
       </a>
 
       <div class="nav-user-actions">
         <div class="user-profile-summary">
-          <div class="user-avatar-circle" id="user-avatar" style="background: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);">R</div>
+          <div class="user-avatar-circle" id="user-avatar" style="background: #2563EB;">R</div>
           <div class="user-info-text">
             <span class="user-name-display" id="user-name">Loading...</span>
             <span class="user-role-display" id="user-role" style="color: #60A5FA;">Recruiter</span>
@@ -40,11 +38,11 @@
     <main class="dashboard-main">
 
       <!-- Welcome Banner -->
-      <section class="welcome-banner" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(18, 24, 38, 0.85) 100%);">
+      <section class="welcome-banner">
         <div class="welcome-text">
-          <h1>Welcome, <span id="welcome-name" style="color: #93C5FD;">Recruiter</span>! 💼</h1>
+          <h1>Welcome, <span id="welcome-name" style="color: #60A5FA;">Recruiter</span>! 💼</h1>
           <p>
-            Your corporate recruiter portal is active. You can create and publish placement opportunities, review verified student profiles, and track candidate evaluations.
+            Welcome to the BML Munjal University placement and industry engagement portal. You can post opportunities, review verified student talent, and coordinate recruitment drives.
           </p>
         </div>
         <div>
@@ -62,7 +60,7 @@
             <span class="stat-icon">🏢</span>
           </div>
           <div class="stat-value" style="color: #34D399;">Verified</div>
-          <div class="stat-subtext">Registered Partner Company</div>
+          <div class="stat-subtext">BMU Corporate Partner</div>
         </div>
 
         <div class="stat-card">
@@ -71,16 +69,16 @@
             <span class="stat-icon">💼</span>
           </div>
           <div class="stat-value">Recruiter</div>
-          <div class="stat-subtext">Corporate Hiring Authority</div>
+          <div class="stat-subtext">Authorized Hiring Authority</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">Placement Drives</span>
+            <span class="stat-title">Campus Drives</span>
             <span class="stat-icon">📢</span>
           </div>
-          <div class="stat-value" style="color: #60A5FA;">Active</div>
-          <div class="stat-subtext">Campus Recruitment Drives</div>
+          <div class="stat-value" style="color: #38BDF8;">Active</div>
+          <div class="stat-subtext">Placement Drives</div>
         </div>
 
         <div class="stat-card">
@@ -105,7 +103,7 @@
         </div>
 
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
-          Verified recruiter credentials and corporate authorization payload issued by the PlaceCo platform.
+          Verified recruiter credentials and corporate authorization payload issued by BMU PlaceCo.
         </p>
 
         <div class="session-inspector" id="session-json">Loading session credentials...</div>
@@ -117,12 +115,12 @@
           <span>🛡️</span> Security Sandbox: Role-Based Access Control (RBAC) Verification
         </div>
         <p style="color: var(--text-muted); font-size: 0.85rem;">
-          Verify that the recruiter session is strictly restricted to corporate operations:
+          Verify that the recruiter role is strictly restricted to corporate operations:
         </p>
 
         <div class="rbac-test-buttons">
           <button type="button" class="btn btn-secondary" onclick="testAuthorizedRecruiterAccess()" style="font-size: 0.825rem;">
-            ✓ Test Authorized Request (GET /api/recruiter/profile)
+            ✓ Test Authorized Recruiter Endpoint (GET /api/recruiter/profile)
           </button>
           
           <button type="button" class="btn btn-outline-danger" onclick="testForbiddenStudentAccess()" style="font-size: 0.825rem;">
@@ -159,6 +157,7 @@
     function renderSession(user, token) {
       const displayObj = {
         authenticated: true,
+        institution: 'BML Munjal University (@bmu.edu.in)',
         user: {
           id: user.id,
           name: user.name,
@@ -167,7 +166,6 @@
           status: user.status
         },
         tokenPreview: token ? `${token.substring(0, 36)}... [valid JWT]` : null,
-        storage: 'localStorage (PlaceCoAuth.TOKEN_KEY)',
         activeRolePermission: 'RECRUITER_LEVEL'
       };
       document.getElementById('session-json').textContent = JSON.stringify(displayObj, null, 2);

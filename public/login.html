@@ -3,57 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlaceCo – Career & Placement Portal | Login</title>
+  <title>BML Munjal University – Placement & Career Services Portal</title>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/auth.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+  <link rel="icon" href="/images/bmu-logo.png">
 </head>
 <body>
   <div class="auth-wrapper">
     <div class="auth-container">
       
-      <!-- Left Hero & Portal Highlights Panel -->
+      <!-- Left Hero & BMU Brand Panel -->
       <div class="auth-hero-panel">
         <div>
-          <div class="brand-header">
-            <div class="brand-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/>
-              </svg>
+          <!-- Official BMU Logo -->
+          <div class="bmu-logo-wrap">
+            <img src="/images/bmu-logo.png" alt="BML Munjal University Logo" class="bmu-hero-logo">
+            <div class="brand-portal-subline">
+              <span class="brand-portal-tag">Career Services & Placement Cell</span>
             </div>
-            <span class="brand-title">PlaceCo</span>
           </div>
 
           <div class="hero-content">
-            <h2>Campus Placements, <span>Streamlined.</span></h2>
+            <h2>Campus Placements, <span>Centralized.</span></h2>
             <p class="hero-description">
-              A centralized placement & career management portal connecting students, corporate recruiters, and placement coordinators.
+              Official placement and career management portal of BML Munjal University, connecting students, corporate partners, and academic coordinators.
             </p>
           </div>
 
-          <!-- Professional Portal Capabilities -->
+          <!-- Institutional Capabilities -->
           <div class="portal-features-list">
             <div class="portal-feature-item">
-              <div class="feature-icon-badge">🚀</div>
+              <div class="feature-icon-badge">🎓</div>
               <div class="feature-text">
-                <h4>Campus Recruitment Drives</h4>
-                <p>Browse placement opportunities with transparent eligibility criteria, CTC details, and deadlines.</p>
-              </div>
-            </div>
-
-            <div class="portal-feature-item">
-              <div class="feature-icon-badge">📄</div>
-              <div class="feature-text">
-                <h4>Verified Academic Profiles</h4>
-                <p>Maintain your verified credentials, CGPA records, and professional resumes in one place.</p>
+                <h4>Verified Academic Records</h4>
+                <p>Maintain verified CGPA records, department credentials, and professional resumes.</p>
               </div>
             </div>
 
             <div class="portal-feature-item">
               <div class="feature-icon-badge">💼</div>
               <div class="feature-text">
-                <h4>Corporate Recruiter Hub</h4>
-                <p>Create placement drives, review verified candidate applications, and streamline hiring pipelines.</p>
+                <h4>Campus Recruitment Drives</h4>
+                <p>Access full-time and internship opportunities with transparent eligibility criteria.</p>
+              </div>
+            </div>
+
+            <div class="portal-feature-item">
+              <div class="feature-icon-badge">⚡</div>
+              <div class="feature-text">
+                <h4>Real-Time Application Status</h4>
+                <p>Track your applications, shortlisting rounds, and placement results seamlessly.</p>
               </div>
             </div>
           </div>
@@ -61,10 +60,10 @@
 
         <!-- Institutional Security Badge -->
         <div class="portal-trust-badge">
-          <div class="trust-badge-icon">🔒</div>
+          <div class="trust-badge-icon">🏛️</div>
           <div class="trust-badge-content">
-            <span class="trust-badge-title">Enterprise-Grade Security</span>
-            <p class="trust-badge-desc">Protected by Role-Based Access Control (RBAC) & 256-bit JWT Encryption</p>
+            <span class="trust-badge-title">Official Institutional Portal</span>
+            <p class="trust-badge-desc">Authentication strictly restricted to verified @bmu.edu.in accounts.</p>
           </div>
         </div>
       </div>
@@ -72,14 +71,14 @@
       <!-- Right Interactive Form Panel -->
       <div class="auth-form-panel">
         <div class="auth-header-wrap">
-          <h3 id="auth-title">Sign In to PlaceCo</h3>
-          <p id="auth-subtitle">Enter your institutional credentials to access your placement dashboard.</p>
+          <h3 id="auth-title">Sign In to BMU Portal</h3>
+          <p id="auth-subtitle">Use your official university ID (@bmu.edu.in) to access your dashboard.</p>
         </div>
 
         <!-- Tab Switcher -->
         <div class="auth-tabs">
           <button type="button" class="auth-tab-btn active" id="tab-login">Sign In</button>
-          <button type="button" class="auth-tab-btn" id="tab-register">Create Account</button>
+          <button type="button" class="auth-tab-btn" id="tab-register">New Registration</button>
         </div>
 
         <!-- Live Alert Banner -->
@@ -90,19 +89,20 @@
           <form id="login-form" novalidate>
             <div class="form-group">
               <label class="form-label" for="login-email">
-                <span>Email Address</span>
+                <span>BMU Institutional Email</span>
               </label>
               <div class="input-wrapper">
                 <input
                   type="email"
                   id="login-email"
                   class="form-control"
-                  placeholder="name@placeco.edu or company@domain.com"
+                  placeholder="e.g. aryan.bhutani@bmu.edu.in"
                   autocomplete="username"
                   required
                 >
                 <span class="input-icon">✉</span>
               </div>
+              <span class="form-input-hint">Must end with @bmu.edu.in</span>
             </div>
 
             <div class="form-group">
@@ -123,8 +123,8 @@
               </div>
             </div>
 
-            <button type="submit" id="login-submit-btn" class="btn btn-primary btn-block" style="margin-top: 1.5rem;">
-              Sign In to Dashboard →
+            <button type="submit" id="login-submit-btn" class="btn btn-primary btn-block" style="margin-top: 1.25rem;">
+              Sign In to Portal →
             </button>
           </form>
         </div>
@@ -134,7 +134,7 @@
           <form id="register-form" novalidate>
             
             <div class="role-selector-wrap">
-              <span class="role-selector-label">I am registering as:</span>
+              <span class="role-selector-label">Account Category:</span>
               <div class="role-pills">
                 <div class="role-pill-option">
                   <input type="radio" id="role-student" name="register-role" value="student" checked>
@@ -163,35 +163,36 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="register-email">Email Address</label>
+              <label class="form-label" for="register-email">BMU Institutional Email</label>
               <div class="input-wrapper">
-                <input type="email" id="register-email" class="form-control" placeholder="name@placeco.edu" required>
+                <input type="email" id="register-email" class="form-control" placeholder="e.g. aryan.bhutani@bmu.edu.in" required>
                 <span class="input-icon">✉</span>
               </div>
+              <span class="form-input-hint">Must be an authorized @bmu.edu.in email ID</span>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="register-password">Password (min 6 characters)</label>
+              <label class="form-label" for="register-password">Password (minimum 6 characters)</label>
               <div class="input-wrapper">
-                <input type="password" id="register-password" class="form-control" placeholder="Create a strong password" required>
+                <input type="password" id="register-password" class="form-control" placeholder="Create a secure password" required>
                 <span class="input-icon">🔒</span>
                 <button type="button" class="password-toggle-btn" data-target="register-password">👁</button>
               </div>
             </div>
 
             <button type="submit" id="register-submit-btn" class="btn btn-primary btn-block" style="margin-top: 1.25rem;">
-              Create Account & Sign In →
+              Register BMU Account →
             </button>
           </form>
         </div>
 
-        <!-- Security / RBAC notice -->
+        <!-- Institutional notice -->
         <div class="form-footer-helpers">
-          <span style="color: var(--text-dim); font-size: 0.8rem;">
-            🔒 Secure 256-bit Encrypted Session
+          <span style="color: var(--text-dim); font-size: 0.775rem;">
+            🔒 BMU Institutional Authentication
           </span>
-          <span style="color: var(--text-dim); font-size: 0.8rem;">
-            PlaceCo Placement Portal
+          <span style="color: var(--text-dim); font-size: 0.775rem;">
+            BML Munjal University
           </span>
         </div>
 

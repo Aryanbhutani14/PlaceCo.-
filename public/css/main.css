@@ -1,64 +1,65 @@
 /* ==========================================================================
-   PlaceCo - Global Modern Design System
-   Google Fonts: Outfit & Inter
+   PlaceCo - BML Munjal University Design System
+   Professional Institutional University Theme (Navy / Corporate Blue / Slate)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Color Palette */
-  --bg-dark: #0B0F19;
-  --bg-card: rgba(18, 24, 38, 0.85);
-  --bg-card-hover: rgba(26, 35, 55, 0.95);
-  --bg-input: rgba(15, 23, 42, 0.7);
-  --bg-glass: rgba(255, 255, 255, 0.03);
+  /* Institutional BMU Palette */
+  --bg-dark: #0A0F1D;
+  --bg-card: #111A2E;
+  --bg-card-hover: #16233B;
+  --bg-input: #0D1527;
+  --bg-glass: rgba(255, 255, 255, 0.02);
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-focus: #6366F1;
-  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-subtle: #1F2C44;
+  --border-focus: #2563EB;
+  --border-glass: #2A3B5A;
 
-  --primary: #4F46E5;
-  --primary-hover: #4338CA;
-  --primary-light: rgba(99, 102, 241, 0.15);
-  --primary-glow: rgba(79, 70, 229, 0.4);
+  /* Primary BMU Executive Blue */
+  --primary: #1D4ED8;
+  --primary-hover: #1E40AF;
+  --primary-light: rgba(37, 99, 235, 0.12);
+  --primary-glow: rgba(29, 78, 216, 0.2);
 
-  --secondary: #06B6D4;
-  --secondary-glow: rgba(6, 182, 212, 0.35);
+  /* Warm Gold / Amber Accent (from BMU Logo) */
+  --secondary: #D97706;
+  --secondary-glow: rgba(217, 119, 6, 0.2);
 
+  /* Role Badges */
   --accent-student: #10B981;
-  --accent-student-bg: rgba(16, 185, 129, 0.12);
-  --accent-recruiter: #3B82F6;
-  --accent-recruiter-bg: rgba(59, 130, 246, 0.12);
-  --accent-admin: #8B5CF6;
-  --accent-admin-bg: rgba(139, 92, 246, 0.12);
+  --accent-student-bg: rgba(16, 185, 129, 0.1);
+  --accent-recruiter: #2563EB;
+  --accent-recruiter-bg: rgba(37, 99, 235, 0.1);
+  --accent-admin: #0284C7;
+  --accent-admin-bg: rgba(2, 132, 199, 0.1);
 
   --text-main: #F8FAFC;
   --text-muted: #94A3B8;
   --text-dim: #64748B;
 
   --danger: #EF4444;
-  --danger-bg: rgba(239, 68, 68, 0.12);
+  --danger-bg: rgba(239, 68, 68, 0.1);
   --success: #10B981;
-  --success-bg: rgba(16, 185, 129, 0.12);
+  --success-bg: rgba(16, 185, 129, 0.1);
   --warning: #F59E0B;
-  --warning-bg: rgba(245, 158, 11, 0.12);
+  --warning-bg: rgba(245, 158, 11, 0.1);
 
   /* Typography */
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Shadows & Blur */
-  --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 35px var(--primary-glow);
-  --blur-glass: blur(16px);
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  /* Shadows */
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
   --radius-full: 9999px;
 
   /* Transitions */
-  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
 }
 
 *, *::before, *::after {
@@ -75,9 +76,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   background-image:
-    radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.18) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.08) 0px, transparent 60%);
+    radial-gradient(at 50% 0%, rgba(29, 78, 216, 0.08) 0px, transparent 65%),
+    linear-gradient(180deg, #0A0F1D 0%, #070B14 100%);
   background-attachment: fixed;
 }
 
@@ -89,13 +89,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: var(--primary);
+  color: #38BDF8;
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: #818CF8;
+  color: #7DD3FC;
 }
 
 /* Base Form Controls */
@@ -146,8 +146,8 @@ a:hover {
 
 .form-control:focus {
   border-color: var(--border-focus);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
-  background-color: rgba(20, 30, 52, 0.9);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+  background-color: #0F1A30;
 }
 
 .form-control:focus + .input-icon {
@@ -191,14 +191,14 @@ a:hover {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  background: #1D4ED8;
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.35);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #4338CA 0%, #4F46E5 100%);
-  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+  background: #1E40AF;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.45);
   transform: translateY(-1px);
 }
 
@@ -207,13 +207,13 @@ a:hover {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-main);
   border: 1px solid var(--border-subtle);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -254,13 +254,13 @@ a:hover {
 .badge-recruiter {
   background: var(--accent-recruiter-bg);
   color: #60A5FA;
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(37, 99, 235, 0.3);
 }
 
 .badge-admin {
   background: var(--accent-admin-bg);
-  color: #A78BFA;
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: #38BDF8;
+  border: 1px solid rgba(2, 132, 199, 0.3);
 }
 
 /* Alerts and Banners */
@@ -288,9 +288,9 @@ a:hover {
 }
 
 .alert-info {
-  background: rgba(59, 130, 246, 0.12);
+  background: rgba(37, 99, 235, 0.12);
   color: #93C5FD;
-  border: 1px solid rgba(59, 130, 246, 0.35);
+  border: 1px solid rgba(37, 99, 235, 0.35);
 }
 
 /* Toast Notification */
@@ -309,10 +309,9 @@ a:hover {
   max-width: 420px;
   padding: 1rem 1.25rem;
   border-radius: var(--radius-md);
-  background: rgba(18, 24, 38, 0.95);
-  backdrop-filter: var(--blur-glass);
+  background: #111A2E;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-subtle);
   color: var(--text-main);
   display: flex;
   align-items: center;

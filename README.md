@@ -193,15 +193,15 @@ erDiagram
 
 The database is pre-seeded with verified test accounts across all roles:
 
-| Role | Name | Email | Password | Assigned Dashboard |
+| Role | Name | Institutional Email | Password | Assigned Dashboard |
 |---|---|---|---|---|
-| 🎓 **Student** | Aryan Bhutani | `student@placeco.edu` | `Password123` | `/student/dashboard.html` |
-| 🎓 **Student 2** | Priya Sharma | `priya.sharma@placeco.edu` | `Password123` | `/student/dashboard.html` |
-| 💼 **Recruiter** | Vikram Malhotra (ABC Tech) | `recruiter@placeco.edu` | `Password123` | `/recruiter/dashboard.html` |
-| 💼 **Recruiter 2** | Ananya Roy (Nova Solutions) | `hr@novasolutions.com` | `Password123` | `/recruiter/dashboard.html` |
-| 🛡️ **Administrator** | Dr. Ramesh Sharma | `admin@placeco.edu` | `Password123` | `/admin/dashboard.html` |
+| 🎓 **Student** | Aryan Bhutani | `student@bmu.edu.in` | `Password123` | `/student/dashboard.html` |
+| 🎓 **Student 2** | Priya Sharma | `priya.sharma@bmu.edu.in` | `Password123` | `/student/dashboard.html` |
+| 💼 **Recruiter** | Vikram Malhotra (ABC Tech) | `recruiter@bmu.edu.in` | `Password123` | `/recruiter/dashboard.html` |
+| 💼 **Recruiter 2** | Ananya Roy (Nova Solutions) | `corporate.relations@bmu.edu.in` | `Password123` | `/recruiter/dashboard.html` |
+| 🛡️ **Administrator** | Dr. Ramesh Sharma | `admin@bmu.edu.in` | `Password123` | `/admin/dashboard.html` |
 
-> 💡 **Tip:** On the login page, you can simply click the **1-Click Evaluation Credentials** pills on the left panel to immediately auto-fill any role!
+> 🔒 **Institutional Restriction:** Authentication is restricted exclusively to authorized `@bmu.edu.in` email addresses. Non-BMU email domains are blocked with HTTP `400 Bad Request`.
 
 ---
 
@@ -215,6 +215,7 @@ Automated integration tests ensure full coverage of the required test scenarios 
 | **TC-LOGIN-02** | Invalid Password | Rejects incorrect credentials with `401 Unauthorized` and message *"Invalid email or password"*. | ✅ PASS |
 | **TC-LOGIN-03** | Empty Credentials | Rejects empty email or empty password with `400 Bad Request` validation error. | ✅ PASS |
 | **TC-LOGIN-04** | Role-Based Access Control | Strictly denies cross-role requests (e.g. Student accessing recruiter routes returns `403 Forbidden`). | ✅ PASS |
+| **TC-LOGIN-05** | BMU Domain Restriction | Strictly rejects non-`@bmu.edu.in` emails (e.g. `@gmail.com` or `@yahoo.com`) with `400 Bad Request`. | ✅ PASS |
 
 To run the automated tests:
 ```bash

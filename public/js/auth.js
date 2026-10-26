@@ -127,6 +127,12 @@ async function handleLoginSubmit(e) {
     return;
   }
 
+  if (!email.toLowerCase().endsWith('@bmu.edu.in')) {
+    showAlert('Access restricted: Only official @bmu.edu.in institutional email IDs are permitted.', 'danger');
+    document.getElementById('login-email').focus();
+    return;
+  }
+
   if (!password) {
     showAlert('Please enter your password.', 'danger');
     document.getElementById('login-password').focus();
@@ -186,6 +192,11 @@ async function handleRegisterSubmit(e) {
 
   if (!email) {
     showAlert('Please enter a valid email address.', 'danger');
+    return;
+  }
+
+  if (!email.toLowerCase().endsWith('@bmu.edu.in')) {
+    showAlert('Registration is restricted to official @bmu.edu.in institutional email IDs.', 'danger');
     return;
   }
 

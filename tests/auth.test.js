@@ -7,12 +7,12 @@ beforeAll(() => {
 });
 
 describe('MODULE 1 - Authentication & Role-Based Login', () => {
-  // TC-LOGIN-01: Valid login for student, recruiter, admin
-  test('TC-LOGIN-01: Valid login returns token, role and proper redirectUrl', async () => {
+  // TC-LOGIN-01: Valid login for student, recruiter, admin with @bmu.edu.in emails
+  test('TC-LOGIN-01: Valid login returns token, role and proper redirectUrl for @bmu.edu.in users', async () => {
     // Student login
     const studentRes = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'student@placeco.edu', password: 'Password123' });
+      .send({ email: 'student@bmu.edu.in', password: 'Password123' });
 
     expect(studentRes.statusCode).toBe(200);
     expect(studentRes.body.success).toBe(true);
@@ -23,7 +23,7 @@ describe('MODULE 1 - Authentication & Role-Based Login', () => {
     // Recruiter login
     const recruiterRes = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'recruiter@placeco.edu', password: 'Password123' });
+      .send({ email: 'recruiter@bmu.edu.in', password: 'Password123' });
 
     expect(recruiterRes.statusCode).toBe(200);
     expect(recruiterRes.body.data.user.role).toBe('recruiter');
@@ -32,7 +32,7 @@ describe('MODULE 1 - Authentication & Role-Based Login', () => {
     // Admin login
     const adminRes = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'admin@placeco.edu', password: 'Password123' });
+      .send({ email: 'admin@bmu.edu.in', password: 'Password123' });
 
     expect(adminRes.statusCode).toBe(200);
     expect(adminRes.body.data.user.role).toBe('admin');
@@ -43,7 +43,7 @@ describe('MODULE 1 - Authentication & Role-Based Login', () => {
   test('TC-LOGIN-02: Invalid password returns 401 with meaningful message', async () => {
     const res = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'student@placeco.edu', password: 'WrongPassword999' });
+      .send({ email: 'student@bmu.edu.in', password: 'WrongPassword999' });
 
     expect(res.statusCode).toBe(401);
     expect(res.body.success).toBe(false);
@@ -63,7 +63,7 @@ describe('MODULE 1 - Authentication & Role-Based Login', () => {
     // Empty password
     const res2 = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'student@placeco.edu', password: '' });
+      .send({ email: 'student@bmu.edu.in', password: '' });
 
     expect(res2.statusCode).toBe(400);
     expect(res2.body.success).toBe(false);
@@ -74,7 +74,7 @@ describe('MODULE 1 - Authentication & Role-Based Login', () => {
     // 1. Get student token
     const studentLogin = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'student@placeco.edu', password: 'Password123' });
+      .send({ email: 'student@bmu.edu.in', password: 'Password123' });
     const studentToken = studentLogin.body.data.token;
 
     // 2. Student tries to access recruiter-only endpoint
@@ -89,7 +89,7 @@ describe('MODULE 1 - Authentication & Role-Based Login', () => {
     // 3. Get recruiter token
     const recruiterLogin = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'recruiter@placeco.edu', password: 'Password123' });
+      .send({ email: 'recruiter@bmu.edu.in', password: 'Password123' });
     const recruiterToken = recruiterLogin.body.data.token;
 
     // 4. Recruiter tries to access student-only endpoint
@@ -103,5 +103,31 @@ describe('MODULE 1 - Authentication & Role-Based Login', () => {
     // 5. Unauthenticated request to protected route
     const unauth = await request(app).get('/api/student/profile');
     expect(unauth.statusCode).toBe(401);
+  });
+
+  // TC-LOGIN-05: Strict @bmu.edu.in institutional domain restriction
+  test('TC-LOGIN-05: Non-BMU email domains are strictly rejected with 400', async () => {
+    // Login with external domain
+    const loginRes = await request(app)
+      .post('/api/auth/login')
+      .send({ email: 'student@gmail.com', password: 'Password123' });
+
+    expect(loginRes.statusCode).toBe(400);
+    expect(loginRes.body.success).toBe(false);
+    expect(loginRes.body.message).toMatch(/only official @bmu\.edu\.in/i);
+
+    // Register with external domain
+    const registerRes = await request(app)
+      .post('/api/auth/register')
+      .send({
+        name: 'External User',
+        email: 'user@yahoo.com',
+        password: 'Password123',
+        role: 'student'
+      });
+
+    expect(registerRes.statusCode).toBe(400);
+    expect(registerRes.body.success).toBe(false);
+    expect(registerRes.body.message).toMatch(/@bmu\.edu\.in/i);
   });
 });

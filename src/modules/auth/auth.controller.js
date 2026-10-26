@@ -1,5 +1,5 @@
 const authService = require('./auth.service');
-const { validateLoginInput, isValidEmail } = require('../../shared/validation/validators');
+const { validateLoginInput, isValidEmail, isBmuEmail } = require('../../shared/validation/validators');
 const { sendSuccess, sendError } = require('../../shared/utils/response');
 
 class AuthController {
@@ -28,7 +28,11 @@ class AuthController {
       const errors = [];
 
       if (!name || !name.trim()) errors.push('Name is required.');
-      if (!email || !isValidEmail(email)) errors.push('A valid email is required.');
+      if (!email || !isValidEmail(email)) {
+        errors.push('A valid email is required.');
+      } else if (!isBmuEmail(email)) {
+        errors.push('Registration is restricted to official @bmu.edu.in institutional email addresses.');
+      }
       if (!password || password.length < 6) errors.push('Password must be at least 6 characters long.');
       if (!role || !['student', 'recruiter'].includes(role)) errors.push('Role must be student or recruiter.');
 

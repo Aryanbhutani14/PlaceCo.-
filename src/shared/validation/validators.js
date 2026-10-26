@@ -15,6 +15,11 @@ function isValidPhone(phone) {
   return phoneRegex.test(phone.trim().replace(/\s+/g, ''));
 }
 
+function isBmuEmail(email) {
+  if (!email || typeof email !== 'string') return false;
+  return email.trim().toLowerCase().endsWith('@bmu.edu.in');
+}
+
 function validateLoginInput(body) {
   const errors = [];
   const { email, password } = body || {};
@@ -23,6 +28,8 @@ function validateLoginInput(body) {
     errors.push('Email is required.');
   } else if (!isValidEmail(email)) {
     errors.push('Please enter a valid email address.');
+  } else if (!isBmuEmail(email)) {
+    errors.push('Access restricted: Only official @bmu.edu.in email addresses are permitted.');
   }
 
   if (!password || !password.toString().trim()) {
@@ -217,6 +224,7 @@ function checkStudentEligibility(studentProfile, opportunity) {
 
 module.exports = {
   isValidEmail,
+  isBmuEmail,
   isValidPhone,
   validateLoginInput,
   validateStudentProfile,

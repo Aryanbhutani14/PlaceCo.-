@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlaceCo – Administrator Portal Dashboard</title>
+  <title>BMU PlaceCo – Administrator Console</title>
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/dashboard.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <link rel="icon" href="/images/bmu-logo.png">
 </head>
 <body>
   <div class="app-layout">
@@ -14,19 +14,17 @@
     <!-- Top Navigation -->
     <header class="top-navbar">
       <a href="/admin/dashboard.html" class="nav-brand">
-        <div class="nav-brand-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 11.99H7V10.99H12V7L17 11.99L12 17V11.99Z"/></svg>
-        </div>
+        <img src="/images/bmu-logo.png" alt="BML Munjal University" class="bmu-nav-logo">
         <span class="nav-brand-text">PlaceCo</span>
-        <span class="badge badge-admin" style="margin-left: 0.5rem;">Administration Console</span>
+        <span class="badge badge-admin" style="margin-left: 0.5rem;">Admin Console</span>
       </a>
 
       <div class="nav-user-actions">
         <div class="user-profile-summary">
-          <div class="user-avatar-circle" id="user-avatar" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);">A</div>
+          <div class="user-avatar-circle" id="user-avatar" style="background: #0284C7;">A</div>
           <div class="user-info-text">
             <span class="user-name-display" id="user-name">Loading...</span>
-            <span class="user-role-display" id="user-role" style="color: #A78BFA;">Admin</span>
+            <span class="user-role-display" id="user-role" style="color: #38BDF8;">Admin</span>
           </div>
         </div>
 
@@ -40,16 +38,16 @@
     <main class="dashboard-main">
 
       <!-- Welcome Banner -->
-      <section class="welcome-banner" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.25) 0%, rgba(18, 24, 38, 0.85) 100%);">
+      <section class="welcome-banner">
         <div class="welcome-text">
-          <h1>Welcome, <span id="welcome-name" style="color: #C084FC;">Administrator</span>! 🛡️</h1>
+          <h1>Welcome, <span id="welcome-name" style="color: #38BDF8;">Administrator</span>! 🛡️</h1>
           <p>
-            Central administrative oversight console for the PlaceCo placement platform. You have superuser privileges across institutional users, opportunities, and placement statistics.
+            Central administrative console for the BML Munjal University placement portal. You have superuser privileges across institutional accounts, placement drives, and placement statistics.
           </p>
         </div>
         <div>
           <span class="badge badge-admin" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
-            ● Administrator Session Active
+            ● Administrator Active
           </span>
         </div>
       </section>
@@ -62,16 +60,16 @@
             <span class="stat-icon">⚡</span>
           </div>
           <div class="stat-value" style="color: #34D399;">Operational</div>
-          <div class="stat-subtext">REST API & Auth Services Active</div>
+          <div class="stat-subtext">BMU Portal Online</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">Registered Users</span>
+            <span class="stat-title">BMU Accounts</span>
             <span class="stat-icon">👥</span>
           </div>
           <div class="stat-value" id="stat-users">...</div>
-          <div class="stat-subtext">Students, Recruiters & Admins</div>
+          <div class="stat-subtext">Verified @bmu.edu.in Users</div>
         </div>
 
         <div class="stat-card">
@@ -80,12 +78,12 @@
             <span class="stat-icon">💾</span>
           </div>
           <div class="stat-value" id="stat-records">...</div>
-          <div class="stat-subtext">Relational SQLite Schema Active</div>
+          <div class="stat-subtext">Relational SQLite Schema</div>
         </div>
 
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-title">Security Protocol</span>
+            <span class="stat-title">Security State</span>
             <span class="stat-icon">🔒</span>
           </div>
           <div class="stat-value" style="color: #34D399;">Enforced</div>
@@ -105,7 +103,7 @@
         </div>
 
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
-          Verified admin credentials and cryptographic JWT token authorizing superuser actions across the platform.
+          Verified institutional credentials and cryptographic JWT token authorizing superuser actions across BMU PlaceCo.
         </p>
 
         <div class="session-inspector" id="session-json">Loading session credentials...</div>
@@ -144,6 +142,7 @@
     function renderSession(user, token) {
       const displayObj = {
         authenticated: true,
+        institution: 'BML Munjal University (@bmu.edu.in)',
         user: {
           id: user.id,
           name: user.name,
@@ -152,7 +151,6 @@
           status: user.status
         },
         tokenPreview: token ? `${token.substring(0, 36)}... [valid JWT]` : null,
-        storage: 'localStorage (PlaceCoAuth.TOKEN_KEY)',
         activeRolePermission: 'ADMIN_SUPERUSER'
       };
       document.getElementById('session-json').textContent = JSON.stringify(displayObj, null, 2);

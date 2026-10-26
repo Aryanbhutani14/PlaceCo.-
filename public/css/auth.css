@@ -1,5 +1,6 @@
 /* ==========================================================================
-   PlaceCo - Auth Specific Styling
+   PlaceCo - BML Munjal University Auth Styling
+   Clean, Professional, Non-AI University Portal Aesthetic
    ========================================================================== */
 
 .auth-wrapper {
@@ -7,27 +8,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
 }
 
 .auth-container {
   width: 100%;
-  max-width: 1080px;
+  max-width: 1060px;
   background: var(--bg-card);
-  backdrop-filter: var(--blur-glass);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
   display: grid;
-  grid-template-columns: 1.1fr 1.2fr;
+  grid-template-columns: 1.15fr 1.15fr;
   overflow: hidden;
   position: relative;
 }
 
 /* Left Brand Panel */
 .auth-hero-panel {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.25) 0%, rgba(15, 23, 42, 0.8) 100%),
-              radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.2) 0%, transparent 60%);
+  background: #0A1020;
   padding: 3.5rem 3rem;
   display: flex;
   flex-direction: column;
@@ -36,136 +35,132 @@
   position: relative;
 }
 
-.brand-header {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
+.bmu-logo-wrap {
   margin-bottom: 2rem;
 }
 
-.brand-icon {
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
-  border-radius: var(--radius-md);
+.bmu-hero-logo {
+  max-width: 220px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+.brand-portal-subline {
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.5);
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
-.brand-icon svg {
-  width: 24px;
-  height: 24px;
-  fill: #FFFFFF;
-}
-
-.brand-title {
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #FFFFFF 30%, #A5B4FC 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.brand-portal-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
 .hero-content h2 {
-  font-size: 2.1rem;
-  margin-bottom: 1rem;
+  font-size: 1.85rem;
+  margin-bottom: 0.75rem;
   font-weight: 800;
-  line-height: 1.2;
+  color: #FFFFFF;
+  line-height: 1.25;
 }
 
 .hero-content h2 span {
-  background: linear-gradient(135deg, #6366F1 0%, #38BDF8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #38BDF8;
 }
 
 .hero-description {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.925rem;
   margin-bottom: 2rem;
+  line-height: 1.55;
 }
 
+/* Institutional Feature Highlights */
 .portal-features-list {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  margin-top: 1rem;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .portal-feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  background: rgba(15, 23, 42, 0.45);
+  gap: 0.85rem;
+  background: #0D162A;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 1rem 1.15rem;
+  padding: 0.85rem 1rem;
   transition: all var(--transition-fast);
 }
 
 .portal-feature-item:hover {
-  background: rgba(20, 30, 52, 0.7);
-  border-color: rgba(99, 102, 241, 0.3);
-  transform: translateX(4px);
+  background: #111D36;
+  border-color: #2563EB;
+  transform: translateX(3px);
 }
 
 .feature-icon-badge {
-  font-size: 1.35rem;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
   border-radius: var(--radius-sm);
-  background: rgba(99, 102, 241, 0.12);
+  background: rgba(37, 99, 235, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(99, 102, 241, 0.25);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #60A5FA;
 }
 
 .feature-text h4 {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #FFFFFF;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .feature-text p {
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .portal-trust-badge {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.85rem 1.15rem;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: var(--radius-md);
-  margin-top: auto;
 }
 
 .trust-badge-icon {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  color: #34D399;
 }
 
 .trust-badge-title {
   display: block;
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #34D399;
-  letter-spacing: 0.03em;
 }
 
 .trust-badge-desc {
-  font-size: 0.75rem;
+  font-size: 0.725rem;
   color: var(--text-muted);
-  line-height: 1.3;
 }
 
 /* Right Auth Form Panel */
@@ -174,27 +169,29 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: #111A2E;
 }
 
 .auth-header-wrap {
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .auth-header-wrap h3 {
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.65rem;
+  margin-bottom: 0.4rem;
+  color: #FFFFFF;
 }
 
 .auth-header-wrap p {
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 /* Tab Switcher */
 .auth-tabs {
   display: flex;
-  background: rgba(15, 23, 42, 0.7);
-  padding: 0.35rem;
+  background: #0B1220;
+  padding: 0.3rem;
   border-radius: var(--radius-md);
   margin-bottom: 1.75rem;
   border: 1px solid var(--border-subtle);
@@ -202,22 +199,22 @@
 
 .auth-tab-btn {
   flex: 1;
-  padding: 0.65rem 1rem;
+  padding: 0.6rem 1rem;
   border: none;
   background: transparent;
   color: var(--text-muted);
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .auth-tab-btn.active {
-  background: var(--primary);
+  background: #1D4ED8;
   color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.4);
 }
 
 /* Role Selector Pills */
@@ -235,7 +232,7 @@
 
 .role-pills {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
 }
 
@@ -256,7 +253,7 @@
   justify-content: center;
   gap: 0.35rem;
   padding: 0.75rem 0.5rem;
-  background: var(--bg-input);
+  background: #0D1527;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -267,14 +264,19 @@
 }
 
 .role-pill-option input[type="radio"]:checked + .role-pill-label {
-  border-color: var(--primary);
-  background: rgba(99, 102, 241, 0.15);
+  border-color: #2563EB;
+  background: rgba(37, 99, 235, 0.12);
   color: #FFFFFF;
-  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
 }
 
 .role-pill-icon {
   font-size: 1.25rem;
+}
+
+.form-input-hint {
+  font-size: 0.75rem;
+  color: #38BDF8;
+  margin-top: 0.35rem;
 }
 
 /* Form Helper Links */
@@ -282,14 +284,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1rem;
-  font-size: 0.85rem;
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
 }
 
 .loading-spinner {
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: #FFFFFF;
@@ -304,7 +308,7 @@
 @media (max-width: 900px) {
   .auth-container {
     grid-template-columns: 1fr;
-    max-width: 520px;
+    max-width: 480px;
   }
   .auth-hero-panel {
     display: none;

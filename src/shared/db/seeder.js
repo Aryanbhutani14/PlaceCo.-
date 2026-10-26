@@ -23,11 +23,11 @@ function seedDatabase(customDb = null) {
     VALUES (?, ?, ?, ?, ?, ?)
   `);
 
-  insertUser.run(1, 'Admin Ramesh', 'admin@placeco.edu', commonPasswordHash, 'admin', 'active');
-  insertUser.run(2, 'Aryan Bhutani', 'student@placeco.edu', commonPasswordHash, 'student', 'active');
-  insertUser.run(3, 'Priya Sharma', 'priya.sharma@placeco.edu', commonPasswordHash, 'student', 'active');
-  insertUser.run(4, 'Vikram Malhotra', 'recruiter@placeco.edu', commonPasswordHash, 'recruiter', 'active');
-  insertUser.run(5, 'Ananya Roy', 'hr@novasolutions.com', commonPasswordHash, 'recruiter', 'active');
+  insertUser.run(1, 'Admin Ramesh', 'admin@bmu.edu.in', commonPasswordHash, 'admin', 'active');
+  insertUser.run(2, 'Aryan Bhutani', 'student@bmu.edu.in', commonPasswordHash, 'student', 'active');
+  insertUser.run(3, 'Priya Sharma', 'priya.sharma@bmu.edu.in', commonPasswordHash, 'student', 'active');
+  insertUser.run(4, 'Vikram Malhotra', 'recruiter@bmu.edu.in', commonPasswordHash, 'recruiter', 'active');
+  insertUser.run(5, 'Ananya Roy', 'corporate.relations@bmu.edu.in', commonPasswordHash, 'recruiter', 'active');
 
   // 2. Insert Student Profiles
   const insertStudent = targetDb.prepare(`
@@ -74,7 +74,7 @@ function seedDatabase(customDb = null) {
     4,
     'ABC Technologies',
     'Vikram Malhotra',
-    'recruiter@placeco.edu',
+    'recruiter@bmu.edu.in',
     '9123456780',
     'Global leader in enterprise cloud applications and AI-driven platforms.'
   );
@@ -84,7 +84,7 @@ function seedDatabase(customDb = null) {
     5,
     'Nova Solutions',
     'Ananya Roy',
-    'hr@novasolutions.com',
+    'corporate.relations@bmu.edu.in',
     '9234567891',
     'Next-generation fintech software solutions provider.'
   );
