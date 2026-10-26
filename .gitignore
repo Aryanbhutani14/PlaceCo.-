@@ -7,3 +7,6 @@ coverage/
 .DS_Store
 Thumbs.db
 *.log
+credentials.txt
+credentials.json
+*credentials*

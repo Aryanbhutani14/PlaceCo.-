@@ -189,19 +189,11 @@ erDiagram
 
 ---
 
-## 🔑 6. Sample Credentials for Evaluation
+## 🔒 6. Institutional Authentication & Access Policy
 
-The database is pre-seeded with verified test accounts across all roles:
-
-| Role | Name | Institutional Email | Password | Assigned Dashboard |
-|---|---|---|---|---|
-| 🎓 **Student** | Aryan Bhutani | `student@bmu.edu.in` | `Password123` | `/student/dashboard.html` |
-| 🎓 **Student 2** | Priya Sharma | `priya.sharma@bmu.edu.in` | `Password123` | `/student/dashboard.html` |
-| 💼 **Recruiter** | Vikram Malhotra (ABC Tech) | `recruiter@bmu.edu.in` | `Password123` | `/recruiter/dashboard.html` |
-| 💼 **Recruiter 2** | Ananya Roy (Nova Solutions) | `corporate.relations@bmu.edu.in` | `Password123` | `/recruiter/dashboard.html` |
-| 🛡️ **Administrator** | Dr. Ramesh Sharma | `admin@bmu.edu.in` | `Password123` | `/admin/dashboard.html` |
-
-> 🔒 **Institutional Restriction:** Authentication is restricted exclusively to authorized `@bmu.edu.in` email addresses. Non-BMU email domains are blocked with HTTP `400 Bad Request`.
+- **Domain Restriction:** Authentication and user onboarding are restricted exclusively to official BML Munjal University email IDs (`@bmu.edu.in`). Non-BMU email domains are blocked at both API and client validation levels with HTTP `400 Bad Request`.
+- **Pre-Seeded Accounts:** Default role test accounts for Student, Recruiter, and Administrator are initialized when executing the database seeder (`npm run seed`). Passwords are cryptographically salted and hashed using `bcryptjs` (10 rounds).
+- **Security & Privacy:** User credentials and test accounts are managed locally and are strictly excluded from version control via `.gitignore`.
 
 ---
 
