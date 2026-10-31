@@ -23,9 +23,9 @@ To adhere to clean modular software engineering principles, the system is partit
 | Module | Module Name | Assigned Team Member | Status | Description |
 |---|---|---|---|---|
 | **Module 1** | **Authentication & Role-Based Access Control (RBAC)** | **(Aryan Bhutani)** | ✅ **COMPLETED & OPERATIONAL** | Multi-role login, user registration, bcrypt password hashing, JWT stateless tokens, RBAC middleware, and role landing dashboards. |
-| **Module 2** | **Student Profile & Document Management** | **Tanmay Sangwan** | ⏳ *Contract Defined & Ready* | Student academic details, CGPA verification, skills management, and resume/document upload with type/size validation. |
+| **Module 2** | **Student Profile & Document Management** | **Prashast** | ⏳ *Contract Defined & Ready* | Student academic details, CGPA verification, skills management, and resume/document upload with type/size validation. |
 | **Module 3** | **Recruiter & Opportunity Management** | **Tanmay Kandwal** | ⏳ *Contract Defined & Ready* | Company profile management, placement opportunity CRUD, eligibility criteria setup, and applicant tracking. |
-| **Module 4** | **Student Applications & Administration** | **Prashast** | ⏳ *Contract Defined & Ready* | Real-time eligibility evaluation (CGPA, branch, deadline), application submission, duplicate prevention, and admin oversight. |
+| **Module 4** | **Student Applications & Administration** | **Tanmay Sangwan** | ⏳ *Contract Defined & Ready* | Real-time eligibility evaluation (CGPA, branch, deadline), application submission, duplicate prevention, and admin oversight. |
 
 ---
 
